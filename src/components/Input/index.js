@@ -5,6 +5,7 @@ const Input = () => {
 
     const input = createRef();
     const output = createRef();
+    const tableName = createRef();
 
     const [delimiter, setDelimiter] = useState(",");
 
@@ -14,6 +15,7 @@ const Input = () => {
         const info = data.split("\n");
         const columnInfo = info[0].split(delimiter);
         const numberOfColumns = columnInfo.length;
+        generatedCode += `\t\\caption{${tableName.current.value !== '' ? tableName.current.value :'Table name'}}\n`
         generatedCode += "\t\\begin{tabular}{"
         // generate the number of columns
         for (let i=0;i<numberOfColumns;i++) {
@@ -23,7 +25,7 @@ const Input = () => {
                 generatedCode += "c}\n"
             }
         }
-        generatedCode += "\t\\hline\n\t\t";
+        generatedCode += "\t\\hline\\hline\n\t\t";
         // generate column names
         for (let i=0;i<numberOfColumns;i++) {
             if (i !== numberOfColumns - 1)
@@ -53,7 +55,7 @@ const Input = () => {
     return (
         <Wrapper>
             <Content>
-                Input component
+                <input type="text" placeholder="Enter name of table" ref={tableName}></input>
                 <textarea ref={input}/>
                 <button onClick={generateCode}>Create</button>
                 <textarea ref={output}></textarea>
