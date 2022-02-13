@@ -1,3 +1,7 @@
+# Motivation
+
+I love creating reports in LaTeX(pronounced lay·teks - https://www.latex-project.org/about/). LaTeX makes it easy to generate nice looking equations and formatted text. You might also be using LaTeX to write papers in standard formats. One of the most used features are the LaTeX tables but I find it frustrating to type the markdown required for tables. This project is to make that task easier. It's a web application, where you can paste you existing table information which might be present in CSV format and the application will generate the corresponding LaTeX markdown.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
