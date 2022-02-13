@@ -15,10 +15,10 @@ const Input = () => {
         const info = data.split("\n");
         const columnInfo = info[0].split(delimiter);
         const numberOfColumns = columnInfo.length;
-        generatedCode += `\t\\caption{${tableName.current.value !== '' ? tableName.current.value :'Table name'}}\n`
+        generatedCode += `\t\\caption{${tableName.current.value !== '' ? tableName.current.value : 'Table name'}}\n`
         generatedCode += "\t\\begin{tabular}{"
         // generate the number of columns
-        for (let i=0;i<numberOfColumns;i++) {
+        for (let i = 0; i < numberOfColumns; i++) {
             if (i !== numberOfColumns - 1)
                 generatedCode += "c|"
             else {
@@ -27,7 +27,7 @@ const Input = () => {
         }
         generatedCode += "\t\\hline\\hline\n\t\t";
         // generate column names
-        for (let i=0;i<numberOfColumns;i++) {
+        for (let i = 0; i < numberOfColumns; i++) {
             if (i !== numberOfColumns - 1)
                 generatedCode += `${columnInfo[i]} & `
             else {
@@ -36,10 +36,10 @@ const Input = () => {
         }
         generatedCode += "\t\t\\hline\n"
         // Generate the data for the table
-        for (let i = 1; i < info.length;i++) {
+        for (let i = 1; i < info.length; i++) {
             const row = info[i].split(delimiter);
             generatedCode += "\t\t"
-            for (let j=0;j<row.length;j++) {
+            for (let j = 0; j < row.length; j++) {
                 if (j !== row.length - 1) {
                     generatedCode += `${row[j]} & `;
                 } else {
@@ -56,7 +56,7 @@ const Input = () => {
         <Wrapper>
             <Content>
                 <input type="text" placeholder="Enter name of table" ref={tableName}></input>
-                <textarea ref={input}/>
+                <textarea ref={input} />
                 <button onClick={generateCode}>Create</button>
                 <textarea ref={output}></textarea>
             </Content>
